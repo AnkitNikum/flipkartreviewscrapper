@@ -32,10 +32,10 @@ def index():
             print(prod_html)
             commentboxes = prod_html.find_all('div', {'class': "_16PBlm"})
 
-            filename = searchString + ".csv"
-            fw = open(filename, "w")
+            #filename = searchString + ".csv"
+           # fw = open(filename, "w")
             headers = "Product, Customer Name, Rating, Heading, Comment \n"
-            fw.write(headers)
+           # fw.write(headers)
             reviews = []
             for commentbox in commentboxes:
                 try:
@@ -65,7 +65,7 @@ def index():
                     custComment = comtag[0].div.text
                 except Exception as e:
                     print("Exception while creating dictionary: ",e)
-                fw.write(f"{request.form['content']}, {name}, {rating}, {commentHead}, {custComment} \n")
+                # fw.write(f"{request.form['content']}, {name}, {rating}, {commentHead}, {custComment} \n")
                 mydict = {"Product": searchString, "Name": name, "Rating": rating, "CommentHead": commentHead,
                           "Comment": custComment}
                 reviews.append(mydict)
